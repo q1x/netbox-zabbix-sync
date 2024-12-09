@@ -1,4 +1,4 @@
-# NetBox to Zabbix synchronization
+# NetBox to Zabbix synchronization.
 
 A script to create, update and delete Zabbix hosts using NetBox device objects.
 
