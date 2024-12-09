@@ -14,6 +14,7 @@ from modules.device import PhysicalDevice
 from modules.virtual_machine import VirtualMachine
 from modules.tools import convert_recordset, proxy_prepper
 from modules.exceptions import EnvironmentVarError, HostgroupError, SyncError
+from pprint import pformat
 try:
     from config import (
         templates_config_context,
@@ -26,7 +27,9 @@ try:
         vm_hostgroup_format,
         nb_device_filter,
         sync_vms,
-        nb_vm_filter
+        nb_vm_filter,
+        traverse_site_groups,
+        traverse_regions
     )
 except ModuleNotFoundError:
     print("Configuration file config.py not found in main directory."
@@ -87,6 +90,10 @@ def main(arguments):
     allowed_objects = ["location", "role", "manufacturer", "region",
                        "site", "site_group", "tenant", "tenant_group"]
     # Create API call to get all custom fields which are on the device objects
+
+    logger.debug(f"traverse_site_groups: {traverse_site_groups},"
+                 "traverse_regions: {traverse_regions}.")
+
     try:
         device_cfs = list(netbox.extras.custom_fields.filter(
             type="text", content_type_id=23))
