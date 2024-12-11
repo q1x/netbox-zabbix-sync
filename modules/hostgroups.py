@@ -150,13 +150,13 @@ class Hostgroup():
         child_object: the name of the child object (for instance the last NB region)
         OUTPUT: STRING - Either the single child name or child and parents.
         """
-        pprint(nest_type)
         # Check if this type of nesting is supported.
         if not nest_type in self.nested_objects:
             return child_object
         # If the nested flag is True, perform parent calculation
         if self.nested_objects[nest_type]["flag"]:
             final_nested_object = build_path(child_object, self.nested_objects[nest_type]["data"])
+            pprint(final_nested_object)
             return "/".join(final_nested_object)
         # Nesting is not allowed for this object. Return child_object
         return child_object
