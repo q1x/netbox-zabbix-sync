@@ -52,6 +52,7 @@ class Hostgroup():
                 if self.nb.site.group:
                     format_options["site_group"] = self.generate_parents("site_group",
                                                                          str(self.nb.site.group))
+            self.logger.error(pformat(format_options["site_group"]))
             format_options["role"] = role
             format_options["site"] = self.nb.site.name if self.nb.site else None
             format_options["tenant"] = str(self.nb.tenant) if self.nb.tenant else None
@@ -86,7 +87,6 @@ class Hostgroup():
         hg_items = hg_format.split("/")
         for hg_item in hg_items:
             # Check if requested data is available as option for this host
-            self.logger.error(pformat(hg_item))
             if hg_item not in self.format_options:
                 # Check if a custom field exists with this name
                 cf_data = self.custom_field_lookup(hg_item)
