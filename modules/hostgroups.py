@@ -152,7 +152,7 @@ class Hostgroup():
         OUTPUT: STRING - Either the single child name or child and parents.
         """
         # Check if this type of nesting is supported.
-        self.logger.error(pformat(self.nested_objects))
+        self.logger.error(pformat(self))
         if not nest_type in self.nested_objects:
             return child_object
         # If the nested flag is True, perform parent calculation
