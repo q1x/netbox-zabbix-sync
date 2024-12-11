@@ -76,6 +76,7 @@ class Hostgroup():
         """Set nesting options for this Hostgroup"""
         self.nested_objects = {"site_group": {"flag": nested_sitegroup_flag, "data": nb_groups},
                                "region": {"flag": nested_region_flag, "data": nb_regions}}
+        self.logger.error(pformat(self.nested_objects))
 
     def generate(self, hg_format=None):
         """Generate hostgroup based on a provided format"""
@@ -152,11 +153,10 @@ class Hostgroup():
         OUTPUT: STRING - Either the single child name or child and parents.
         """
         # Check if this type of nesting is supported.
-        #if not nest_type in self.nested_objects:
-        #    return child_object
+        if not nest_type in self.nested_objects:
+            return child_object
         # If the nested flag is True, perform parent calculation
-        #if self.nested_objects[nest_type]["flag"]:
-        if True:
+        if self.nested_objects[nest_type]["flag"]:
             final_nested_object = build_path(child_object, self.nested_objects[nest_type]["data"])
             return "/".join(final_nested_object)
         # Nesting is not allowed for this object. Return child_object
