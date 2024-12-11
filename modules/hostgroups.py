@@ -76,7 +76,7 @@ class Hostgroup():
         """Set nesting options for this Hostgroup"""
         self.nested_objects = {"site_group": {"flag": nested_sitegroup_flag, "data": nb_groups},
                                "region": {"flag": nested_region_flag, "data": nb_regions}}
-        self.logger.error(pformat(self.nested_objects))
+        
 
     def generate(self, hg_format=None):
         """Generate hostgroup based on a provided format"""
