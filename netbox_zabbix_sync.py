@@ -14,7 +14,7 @@ from modules.device import PhysicalDevice
 from modules.virtual_machine import VirtualMachine
 from modules.tools import convert_recordset, proxy_prepper
 from modules.exceptions import EnvironmentVarError, HostgroupError, SyncError
-from pprint import pformat
+#from pprint import pformat
 try:
     from config import (
         templates_config_context,
