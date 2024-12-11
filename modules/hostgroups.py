@@ -67,7 +67,7 @@ class Hostgroup():
             if self.nb.cluster:
                 format_options["cluster"] = self.nb.cluster.name
                 format_options["cluster_type"] = self.nb.cluster.type.name
-        self.logger.debug(pformat(format_options))
+        self.logger.error(pformat(format_options))
         self.format_options = format_options
 
     def set_nesting(self, nested_sitegroup_flag, nested_region_flag,
