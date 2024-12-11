@@ -86,6 +86,7 @@ class Hostgroup():
         hg_items = hg_format.split("/")
         for hg_item in hg_items:
             # Check if requested data is available as option for this host
+            self.logger.error(pformat(hg_item))
             if hg_item not in self.format_options:
                 # Check if a custom field exists with this name
                 cf_data = self.custom_field_lookup(hg_item)
