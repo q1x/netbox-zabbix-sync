@@ -2,6 +2,7 @@
 from logging import getLogger
 from modules.exceptions import HostgroupError
 from modules.tools import build_path
+from pprint import pprint
 
 class Hostgroup():
     """Hostgroup class for devices and VM's
@@ -149,6 +150,7 @@ class Hostgroup():
         child_object: the name of the child object (for instance the last NB region)
         OUTPUT: STRING - Either the single child name or child and parents.
         """
+        pprint(nest_type)
         # Check if this type of nesting is supported.
         if not nest_type in self.nested_objects:
             return child_object
