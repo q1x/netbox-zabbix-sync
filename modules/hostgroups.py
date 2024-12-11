@@ -154,9 +154,9 @@ class Hostgroup():
         if not nest_type in self.nested_objects:
             return child_object
         # If the nested flag is True, perform parent calculation
+        pprint(self.nested_objects)
         if self.nested_objects[nest_type]["flag"]:
             final_nested_object = build_path(child_object, self.nested_objects[nest_type]["data"])
-            pprint(final_nested_object)
             return "/".join(final_nested_object)
         # Nesting is not allowed for this object. Return child_object
         return child_object
