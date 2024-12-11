@@ -105,7 +105,7 @@ class PhysicalDevice():
         # Set Hostgroup nesting options
         hg.set_nesting(traverse_site_groups, traverse_regions, nb_site_groups, nb_regions)
         # Generate hostgroup based on hostgroup format
-        self.logger.error(pformat(hg))
+        self.logger.error(pformat(hg_format))
         self.hostgroup = hg.generate(hg_format)
 
     def set_template(self, prefer_config_context, overrule_custom):
