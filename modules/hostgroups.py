@@ -1,8 +1,8 @@
 """Module for all hostgroup related code"""
 from logging import getLogger
+from pprint import pprint
 from modules.exceptions import HostgroupError
 from modules.tools import build_path
-from pprint import pprint
 
 class Hostgroup():
     """Hostgroup class for devices and VM's
