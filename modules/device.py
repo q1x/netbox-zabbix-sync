@@ -5,6 +5,7 @@ Device specific handeling for NetBox to Zabbix
 """
 from os import sys
 from re import search
+from pprint import pformat
 from logging import getLogger
 from zabbix_utils import APIRequestError
 from modules.exceptions import (SyncInventoryError, TemplateError, SyncExternalError,
@@ -104,6 +105,7 @@ class PhysicalDevice():
         # Set Hostgroup nesting options
         hg.set_nesting(traverse_site_groups, traverse_regions, nb_site_groups, nb_regions)
         # Generate hostgroup based on hostgroup format
+        self.logger.error(pformat(hg))
         self.hostgroup = hg.generate(hg_format)
 
     def set_template(self, prefer_config_context, overrule_custom):
