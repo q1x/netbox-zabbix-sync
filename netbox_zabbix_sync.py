@@ -92,7 +92,7 @@ def main(arguments):
     # Create API call to get all custom fields which are on the device objects
 
     logger.debug(f"traverse_site_groups: {traverse_site_groups},"
-                 "traverse_regions: {traverse_regions}.")
+                 f"traverse_regions: {traverse_regions}.")
 
     try:
         device_cfs = list(netbox.extras.custom_fields.filter(
